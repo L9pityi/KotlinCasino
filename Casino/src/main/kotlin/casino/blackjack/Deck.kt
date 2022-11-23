@@ -13,6 +13,14 @@ class Deck {
         deck.shuffle()
     }
 
+    fun deal(numberOfCards: Int): List<Card> {
+        val drawnCards = mutableListOf<Card>()
+        repeat(numberOfCards) {
+            drawnCards.add(deck.removeAt(0))
+        }
+        return drawnCards
+    }
+
     override fun toString(): String {
         return deck.toString()
     }
