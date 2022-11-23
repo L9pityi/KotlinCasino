@@ -1,6 +1,8 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.7.21'
     id 'application'
+
+    id "org.sonarqube" version "3.5.0.2730"
 }
 
 group = 'org.example'
@@ -28,4 +30,12 @@ compileTestKotlin {
 
 application {
     mainClassName = 'MainKt'
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "L9pityi_KotlinCasino"
+        property "sonar.organization", "l9pityi"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
