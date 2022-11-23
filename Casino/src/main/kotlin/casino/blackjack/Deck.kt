@@ -10,6 +10,7 @@ class Deck {
                 deck.add(Card(rank, suit))
             }
         }
+        deck.shuffle()
     }
 
     override fun toString(): String {
