@@ -1,5 +1,7 @@
 package casino
 
+import casino.blackjack.Deck
+
 fun main() {
-    println("Hello World!")
+    println(Deck())
 }

@@ -1,6 +1,7 @@
 package casino.blackjack
 
 enum class Rank {
+    Ace,
     Two,
     Three,
     Four,
@@ -13,5 +14,4 @@ enum class Rank {
     Jack,
     Queen,
     King,
-    Ace,
 }
