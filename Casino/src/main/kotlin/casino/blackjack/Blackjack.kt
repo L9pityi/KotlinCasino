@@ -1,7 +1,6 @@
 package casino.blackjack
 
 class Blackjack(maxNumberOfHands: Int = 5) {
-    private val players = mutableListOf<Player>()
     private val playerHands = mutableListOf<Hand>()
     private val dealerHand = Hand(Player("DEALER"))
 
@@ -22,15 +21,37 @@ class Blackjack(maxNumberOfHands: Int = 5) {
         return hands
     }
 
-    fun startTurn() {
+    fun startRound() {
         val deck = Deck()
-        repeat(2) {
-            for (hand in playerHands) {
-                if (hand.player != null) {
-                    hand.addCards(deck.deal())
-                }
+        dealStart(deck)
+        println("Dealer: $dealerHand")
+    }
+
+    private fun dealStart(deck: Deck) {
+        dealFirstCards(deck)
+        dealSecondCards(deck)
+    }
+
+    private fun dealFirstCards(deck: Deck) {
+        dealPlayers(deck)
+        dealDealer(deck, true)
+    }
+
+    private fun dealSecondCards(deck: Deck) {
+        dealPlayers(deck)
+        dealDealer(deck)
+    }
+
+    private fun dealPlayers(deck: Deck) {
+        for (hand in playerHands) {
+            if (hand.player != null) {
+                hand.addCard(deck.dealCard().also { card ->  card.turnOver() })
             }
-            dealerHand.addCards(deck.deal())
         }
+    }
+
+    private fun dealDealer(deck: Deck, isFirstRound: Boolean = false) {
+        if (isFirstRound) dealerHand.addCard(deck.dealCard().also { card -> card.turnOver() })
+        else dealerHand.addCard(deck.dealCard())
     }
 }

@@ -9,7 +9,7 @@ fun main() {
     val bob = Player("Bob")
     val aliceHands = blackjack.addPlayer(alice, 2)
     val bobHands = blackjack.addPlayer(bob)
-    blackjack.startTurn()
-    println(aliceHands)
-    println(bobHands)
+    blackjack.startRound()
+    println("Alice: $aliceHands")
+    println("Bob: $bobHands")
 }

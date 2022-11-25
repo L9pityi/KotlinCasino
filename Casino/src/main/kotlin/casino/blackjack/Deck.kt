@@ -12,12 +12,8 @@ class Deck {
         deck.shuffle()
     }
 
-    fun deal(numberOfCards: Int = 1): List<Card> {
-        val drawnCards = mutableListOf<Card>()
-        repeat(numberOfCards) {
-            drawnCards.add(deck.removeAt(0))
-        }
-        return drawnCards
+    fun dealCard(): Card {
+        return deck.removeAt(0)
     }
 
     override fun toString(): String {

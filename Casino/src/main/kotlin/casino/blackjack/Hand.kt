@@ -16,8 +16,8 @@ class Hand(player: Player?) {
         player = null
     }
 
-    fun addCards(newCards: List<Card>) {
-        cards += newCards
+    fun addCard(newCard: Card) {
+        cards.add(newCard)
     }
 
     override fun toString(): String {
