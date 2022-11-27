@@ -1,3 +1,5 @@
+package casino
+
 import kotlin.test.Test
 import kotlin.test.assertTrue
 

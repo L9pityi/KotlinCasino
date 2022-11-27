@@ -29,7 +29,7 @@ compileTestKotlin {
 }
 
 application {
-    mainClassName = 'MainKt'
+    mainClassName = 'casino.MainKt'
 }
 
 sonarqube {
